@@ -11,10 +11,7 @@ public class EasterCalculator {
 
     private EasterCalculator(){}
 
-    private static LocalDate calculateFullMoon(int year) throws IllegalArgumentException{
-        if(year < 0){
-            throw new IllegalArgumentException("There was no easter before Jesus existed!");
-        }
+    private static LocalDate calculateFullMoon(int year) {
         LocalDateTime spring = LocalDateTime.of(LocalDate.of(year,SPRING_BEGIN.getMonth(),SPRING_BEGIN.getDayOfMonth()),LocalTime.of(0,0));
         LocalDateTime moonPhase;
         if(year >= 2019){
@@ -31,7 +28,10 @@ public class EasterCalculator {
         return moonPhase.toLocalDate();
     }
 
-    public static LocalDate calculateEaster(int year){
+    public static LocalDate calculateEaster(int year) throws IllegalArgumentException{
+        if(year < 0){
+            throw new IllegalArgumentException("There was no easter before Jesus existed!");
+        }
         if(year != 2019) {
             return calculateFullMoon(year).with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
         } else{
