@@ -1,5 +1,5 @@
 int x = 0;
-int i = 1.5;
+double i = 1.5;
 
 x += i; // funktioniert und x hat den Wert 1. Bei der Zuweisung wird der double auf int gecastet
            (§15.26.2 JLS: "Otherwise, the result of the binary operation is converted to the type of the left-hand variable,
