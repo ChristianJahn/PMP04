@@ -2,4 +2,8 @@ int x = 0;
 int i = 1.5;
 
 x += i; // funktioniert und x hat den Wert 1. Bei der Zuweisung wird der double auf int gecastet
-x = x + i; // Wird nicht kompiliert: double und integer nicht kompatibel
+           (§15.26.2 JLS: "Otherwise, the result of the binary operation is converted to the type of the left-hand variable,
+            subjected to value set conversion (§5.1.13) to the appropriate standard value set (not an extended-exponent
+            value set), and the result of the conversion is stored into the variable."
+x = x + i; // Wird nicht kompiliert: double und integer können mit additionsoperation nicht addiert werden,
+              da int + double = double ergibt (Typerweiterung)
