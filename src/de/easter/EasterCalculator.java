@@ -15,12 +15,12 @@ public class EasterCalculator {
         LocalDateTime spring = LocalDateTime.of(LocalDate.of(year,SPRING_BEGIN.getMonth(),SPRING_BEGIN.getDayOfMonth()),LocalTime.of(0,0));
         LocalDateTime moonPhase;
         if(year >= 2019){
-            moonPhase = KNOWN_FULL_MOON.plusSeconds(FULL_MOON_PERIOD.toSeconds() * ((Math.abs(year-2019) - 1)) * 12);
+            moonPhase = KNOWN_FULL_MOON.plusSeconds(FULL_MOON_PERIOD.toSeconds() * ((Math.abs(year-2019))) * 12);
             while(!moonPhase.isAfter(spring)){
                 moonPhase = moonPhase.plusSeconds(FULL_MOON_PERIOD.toSeconds());
             }
         } else{
-            moonPhase = KNOWN_FULL_MOON.minusSeconds(FULL_MOON_PERIOD.toSeconds() * ((Math.abs(year-2019) - 1)) * 12);
+            moonPhase = KNOWN_FULL_MOON.minusSeconds(FULL_MOON_PERIOD.toSeconds() * ((Math.abs(year-2019))) * 12);
             while (Math.abs(ChronoUnit.DAYS.between(spring, moonPhase)) > 30){
                 moonPhase = moonPhase.minusSeconds(FULL_MOON_PERIOD.toSeconds());
             }
@@ -37,7 +37,7 @@ public class EasterCalculator {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculateEaster(2018));
+        System.out.println(calculateEaster(2020));
         System.out.println(calculateFullMoon(2019));
     }
 }
