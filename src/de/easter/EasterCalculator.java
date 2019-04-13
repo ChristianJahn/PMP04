@@ -29,8 +29,8 @@ public class EasterCalculator {
     }
 
     public static LocalDate calculateEaster(int year) throws IllegalArgumentException{
-        if(year < 0){
-            throw new IllegalArgumentException("There was no easter before Jesus existed!");
+        if(year < 31){
+            throw new IllegalArgumentException("There was no easter before Jesus got killed!");
         }
         if(year != 2019) {
             return calculateFullMoon(year).with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
