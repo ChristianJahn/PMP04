@@ -1,2 +1,2 @@
 # PMP04
-4th task of the excercises of the module PM2 
+4th excercise of the module PM2 
